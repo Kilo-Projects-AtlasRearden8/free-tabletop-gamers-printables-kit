@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPC Tracker — Asdale Dynamics, LLC</title>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5b5b70;
+    --line: #c9c9d6;
+    --field: #ffffff;
+    --border: #a5a5b5;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 12px; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0;
+    padding: 14mm;
+    background: #f5f5f8;
+  }
+  .page {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+  }
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+  }
+  header h1 {
+    font-size: 22px;
+    margin: 0 0 2px 0;
+    letter-spacing: 0.5px;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 10px;
+    margin-bottom: 10px;
+  }
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+  .span-4 { grid-column: span 4; }
+  .field {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 7px;
+    font-size: 12px;
+    min-height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--field);
+  }
+  .field label {
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--muted);
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+  .field input, .field textarea, .field select {
+    border: none;
+    outline: none;
+    font: inherit;
+    color: var(--ink);
+    width: 100%;
+    background: transparent;
+  }
+  .field input::placeholder { color: #aaa; }
+  .field textarea { resize: vertical; font-family: inherit; }
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--ink);
+  }
+  .checkbox-row input { margin: 0; }
+  .section {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    background: #fafafc;
+  }
+  .section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 6px 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--line);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th, td { border: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #ededf3; font-weight: 600; text-transform: uppercase; font-size: 9px; color: var(--muted); }
+  .fill-line {
+    border-bottom: 1px solid var(--border);
+    height: 20px;
+    padding-top: 2px;
+  }
+  footer {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 9px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .print-hint {
+    display: block;
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 8px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: #edeffb;
+    color: #3b3b6b;
+    margin-right: 4px;
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; width: 100%; max-width: none; margin: 0; }
+    .no-print, .print-hint { display: none !important; }
+    .field, .section { break-inside: avoid; }
+    table { break-inside: auto; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <span class="print-hint no-print">Fill in the fields below, then press Ctrl+P (Cmd+P on Mac) and choose "Save as PDF" or your printer. Background graphics: OFF recommended.</span>
+  <header>
+    <h1>NPC Tracker</h1>
+    <p>Fillable &bull; Printable &bull; No account needed &bull; &copy; 2026 Asdale Dynamics, LLC</p>
+  </header>
+
+  <div class="grid">
+    <div class="field span-3"><label>Campaign</label><input type="text"></div>
+    <div class="field"><label>Page</label><input type="text" placeholder="e.g. 1 of 3"></div>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Quick-reference NPCs</p>
+    <table>
+      <thead>
+        <tr><th style="width:22%">Name</th><th style="width:20%">Role</th><th style="width:18%">Disposition</th><th>Location last seen</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td><td class="fill-line"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid">
+    <div class="section span-2">
+      <p class="section-title">NPC detail card</p>
+      <div class="field span-2"><label>Name</label><input type="text"></div>
+      <div class="field span-2"><label>Role / title</label><input type="text"></div>
+      <div class="field span-2"><label>Race / ancestry</label><input type="text"></div>
+      <div class="field span-2"><label>Age</label><input type="number" min="0"></div>
+      <div class="field span-2"><label>Gender</label><input type="text"></div>
+      <div class="field span-2"><label>Disposition</label>
+        <select>
+          <option>Friendly</option>
+          <option>Neutral</option>
+          <option>Hostile</option>
+          <option>Unknown</option>
+        </select>
+      </div>
+      <div class="field span-4"><label>Appearance</label><input type="text"></div>
+      <div class="field span-4" style="min-height:44px;"><label>Personality &amp; quirks</label><textarea rows="2" placeholder="Mannerisms, speech habits, tells..."></textarea></div>
+      <div class="field span-4" style="min-height:44px;"><label>Goals &amp; motivations</label><textarea rows="2" placeholder="What does this NPC want?"></textarea></div>
+      <div class="field span-4" style="min-height:44px;"><label>Secrets</label><textarea rows="2" placeholder="What are they hiding? (GM only)"></textarea></div>
+      <div class="field span-4"><label>Location</label><input type="text"></div>
+      <div class="field span-4"><label>Last seen</label><input type="text"></div>
+      <div class="field span-4"><label>Relationship to party</label><input type="text"></div>
+    </div>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Relationship map</p>
+    <p style="font-size:11px; color:var(--muted); margin:0 0 6px 0;">Draw lines between NPCs. Use the badges to tag relationship type.</p>
+    <div style="font-family: ui-monospace, SFMono-Regular, monospace; font-size: 10px; color: var(--muted); line-height: 1.6; min-height: 140px;">
+      [  A  ] ───────&gt; [  B  ] ───────&gt; [  C  ]<br>
+       │          ×           │          ↗<br>
+       └────────&gt; [  D  ] &lt;────────┘<br>
+      <br>
+      <span class="badge">Ally</span><span class="badge">Rival</span><span class="badge">Secret</span><span class="badge">Dead</span><span class="badge">Missing</span><br>
+      ← solid line    × hostile     ↗ unknown / complicated
+    </div>
+    <div class="field span-4" style="min-height:80px;"><label>Your map notes</label><textarea rows="5" placeholder="Sketch relationships or paste a photo of your hand-drawn map..."></textarea></div>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Voices &amp; mannerisms</p>
+    <table>
+      <thead>
+        <tr><th style="width:22%">NPC</th><th>Voice / accent / catchphrase</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="fill-line"></td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line"></td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line"></td><td class="fill-line"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Free tabletop gaming printable &mdash; no game assets included. Fill in-browser, print, or save as PDF. &copy; 2026 Asdale Dynamics, LLC. Not affiliated with any game publisher.
+  </footer>
+</main>
+</body>
+</html>

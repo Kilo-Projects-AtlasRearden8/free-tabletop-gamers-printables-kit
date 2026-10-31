@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rules Cheat-Sheet — Asdale Dynamics, LLC</title>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5b5b70;
+    --line: #c9c9d6;
+    --field: #ffffff;
+    --border: #a5a5b5;
+    --accent: #4f46e5;
+    --accent-soft: #eef0ff;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 12px; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0;
+    padding: 14mm;
+    background: #f5f5f8;
+  }
+  .page {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+  }
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+  }
+  header h1 {
+    font-size: 22px;
+    margin: 0 0 2px 0;
+    letter-spacing: 0.5px;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px 10px;
+    margin-bottom: 10px;
+  }
+  .span-2 { grid-column: span 2; }
+  .span-3 { grid-column: span 3; }
+  .span-4 { grid-column: span 4; }
+  .field {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 7px;
+    font-size: 12px;
+    min-height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--field);
+  }
+  .field label {
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--muted);
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+  .field input, .field textarea, .field select {
+    border: none;
+    outline: none;
+    font: inherit;
+    color: var(--ink);
+    width: 100%;
+    background: transparent;
+  }
+  .field input::placeholder { color: #aaa; }
+  .field textarea { resize: vertical; font-family: inherit; }
+  .section {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    background: #fafafc;
+  }
+  .section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 6px 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--line);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th, td { border: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #ededf3; font-weight: 600; text-transform: uppercase; font-size: 9px; color: var(--muted); }
+  .fill-line {
+    border-bottom: 1px solid var(--border);
+    height: 20px;
+    padding-top: 2px;
+  }
+  .kbd {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    background: #ededf3;
+  }
+  .dice-roll {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: ui-monospace, SFMono-Regular, monospace;
+  }
+  ul { margin: 4px 0 0 16px; padding: 0; font-size: 11px; }
+  li { margin-bottom: 3px; }
+  .note {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 6px 9px;
+    border-radius: 0 4px 4px 0;
+    font-size: 10.5px;
+    margin: 6px 0;
+  }
+  footer {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 9px;
+    color: var(--muted);
+    text-align: center;
+  }
+  .print-hint {
+    display: block;
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; width: 100%; max-width: none; margin: 0; }
+    .no-print, .print-hint { display: none !important; }
+    .section { break-inside: avoid; }
+    table { break-inside: auto; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <span class="print-hint no-print">Fill in your group's house rules below, then press Ctrl+P (Cmd+P on Mac) and choose "Save as PDF" or your printer. Background graphics: OFF recommended.</span>
+  <header>
+    <h1>Rules Cheat-Sheet</h1>
+    <p>Fillable &bull; Printable &bull; No account needed &bull; &copy; 2026 Asdale Dynamics, LLC</p>
+  </header>
+
+  <div class="grid">
+    <div class="field span-2"><label>Game system</label><input type="text" placeholder="e.g. D&D 5e"></div>
+    <div class="field span-2"><label>Edition</label><input type="text" placeholder="e.g. 2014 / 2024"></div>
+    <div class="field span-3"><label>Campaign</label><input type="text"></div>
+    <div class="field"><label>Sheet version</label><input type="text" placeholder="v1.0"></div>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Core loop</p>
+    <ul>
+      <li><span class="dice-roll">d20</span> + modifier vs. target number (AC / DC / save DC). Meet or beat = success.</li>
+      <li>Advantage: roll two <span class="dice-roll">d20</span>, take the higher. Disadvantage: take the lower.</li>
+      <li>Natural 20 on an attack = critical hit (usually double damage dice). Natural 1 = automatic miss.</li>
+      <li>Action economy: 1 action, 1 bonus action, 1 reaction, movement up to speed per turn.</li>
+    </ul>
+    <div class="note">Tip: print one cheat-sheet per player and keep it by the dice tray. House rules override this sheet.</div>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Combat quick reference</p>
+    <table>
+      <thead><tr><th style="width:30%">Action</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="fill-line">Attack</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Cast a spell</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Dash / Disengage / Dodge</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Help / Hide / Ready</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Use an object / Interact</td><td class="fill-line"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Conditions (fill in your system's effects)</p>
+    <table>
+      <thead><tr><th style="width:24%">Condition</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td class="fill-line">Blinded</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Charmed</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Frightened</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Incapacitated</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Invisible</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Prone</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Restrained</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Stunned</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Unconscious</td><td class="fill-line"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Skill &amp; ability quick reference</p>
+    <table>
+      <thead><tr><th style="width:30%">Ability / skill</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td class="fill-line">STR (Athletics)</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">DEX (Acrobatics, Stealth)</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">CON</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">INT (Arcana, Investigation)</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">WIS (Insight, Perception)</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">CHA (Deception, Persuasion)</td><td class="fill-line"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">House rules</p>
+    <ul style="margin:0; padding-left:18px; font-size:11px;">
+      <li><span class="fill-line" style="display:block; height:20px;"></span></li>
+      <li><span class="fill-line" style="display:block; height:20px;"></span></li>
+      <li><span class="fill-line" style="display:block; height:20px;"></span></li>
+      <li><span class="fill-line" style="display:block; height:20px;"></span></li>
+    </ul>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Common DCs</p>
+    <table>
+      <thead><tr><th style="width:30%">Difficulty</th><th style="width:14%">DC</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="fill-line">Very easy</td><td class="fill-line">5</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Easy</td><td class="fill-line">10</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Medium</td><td class="fill-line">15</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Hard</td><td class="fill-line">20</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Very hard</td><td class="fill-line">25</td><td class="fill-line"></td></tr>
+        <tr><td class="fill-line">Nearly impossible</td><td class="fill-line">30</td><td class="fill-line"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section span-4">
+    <p class="section-title">Notes</p>
+    <textarea rows="4" placeholder="Errata, page references, rulings made this session..."></textarea>
+  </div>
+
+  <footer>
+    Free tabletop gaming printable &mdash; no game assets included. Fill in-browser, print, or save as PDF. &copy; 2026 Asdale Dynamics, LLC. Not affiliated with any game publisher.
+  </footer>
+</main>
+</body>
+</html>
